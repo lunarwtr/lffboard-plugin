@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Plugin>
+  <Information>
+    <Name>LFFBoard</Name>
+    <Author>Lunarwater</Author>
+    <Version>1.0</Version>
+    <Description>LFF-style bulletin board for LOTRO</Description>
+    <Image>LFFBoard/lffboard.tga</Image>
+  </Information>
+  <Package>LFFBoard.Main</Package>
+	<Configuration Apartment="LFFBoard" />
+</Plugin>
