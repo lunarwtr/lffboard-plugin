@@ -72,7 +72,7 @@ for my $file (@files) {
             region      => $data{'Region'},
             level_lower => $level_lower,
             level_upper => $level_upper,
-            tiers       => ($data{'Tiers'} =~ /^\d+$/ ? $data{'Tiers'}+0 : undef),
+            tiers       => (defined $data{'Tiers'} && $data{'Tiers'} =~ /^\d+$/ ? $data{'Tiers'}+0 : undef),
             group       => $groups,
             type        => $type
         };

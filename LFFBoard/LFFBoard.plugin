@@ -3,8 +3,10 @@
   <Information>
     <Name>LFFBoard</Name>
     <Author>Lunarwater</Author>
-    <Version>1.0</Version>
-    <Description>LFF-style bulletin board for LOTRO</Description>
+    <Version>1.1</Version>
+    <Description>
+      LFFBoard is a Lord of the Rings Online (LOTRO) plugin that helps players summarize and organize group-finding (LFF), World, and Kinship chat posts into a single, easy-to-read board. It automatically categorizes instance and raid requests, making it simple to see which content is being advertised and by whom.
+    </Description>
     <Image>LFFBoard/lffboard.tga</Image>
   </Information>
   <Package>LFFBoard.Main</Package>

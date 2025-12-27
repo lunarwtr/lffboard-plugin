@@ -8,13 +8,22 @@ Options = class(Turbine.UI.Control)
 
 function Options:Constructor()
     Turbine.UI.Control.Constructor(self)
+    
+    local cbWidth = 230
+    local abbrBoxWidth = 340
+    local rowWidth = cbWidth + abbrBoxWidth + 10
+    local abbrBoxLeft = cbWidth + 10
+    local categoryWidth = rowWidth + 20
+    local listWidth = categoryWidth + 10
+    local catCBWidth = rowWidth
+    local dungeonListWidth = rowWidth
 
     local fontColor = Turbine.UI.Color(1,.9,.5);
     local fontFace = Turbine.UI.Lotro.Font.Verdana14;
     local headerFontFace = Turbine.UI.Lotro.Font.VerdanaBold16;
     local backColor = Turbine.UI.Color(0.1, 0.1, 0.1);
     self:SetBackColor(backColor);
-    self:SetWidth(400);
+    self:SetWidth(listWidth);
 
     local y = 10
 
@@ -84,12 +93,23 @@ function Options:Constructor()
     self.list:SetParent(self)
     self.list:SetPosition(10, y)
 
-    -- Group dungeons by category
+    -- Group dungeons by category (bucketize)
     local categories = {}
     for _, entry in ipairs(LFFBoardData) do
         if not categories[entry.category] then categories[entry.category] = {} end
         table.insert(categories[entry.category], entry)
     end
+    -- Sort entries within each category after bucketing
+    for _, entries in pairs(categories) do
+        table.sort(entries, function(a, b) return a.name < b.name end)
+    end
+
+    -- Create and sort the list of category names
+    local sortedCategories = {}
+    for category in pairs(categories) do
+        table.insert(sortedCategories, category)
+    end
+    table.sort(sortedCategories)
 
     -- Utility: create a row with checkbox and input
     local function createDungeonRow(entry)
@@ -104,7 +124,7 @@ function Options:Constructor()
         local cbText = ' ' .. entry.name
         local cbHeight = string.len(cbText) > 30 and 30 or 20
         cb:SetText(' ' .. entry.name)
-        cb:SetSize(230, cbHeight)
+        cb:SetSize(cbWidth, cbHeight)
         cb:SetPosition(0, 2)
         row:SetHeight(cbHeight + 4)
 
@@ -115,10 +135,10 @@ function Options:Constructor()
         abbrBox:SetForeColor(fontColor);
         abbrBox:SetOutlineColor(Turbine.UI.Color(0,0,0));
         abbrBox:SetFontStyle(Turbine.UI.FontStyle.Outline);
-        abbrBox:SetTextAlignment(Turbine.UI.ContentAlignment.Undefined)
+        abbrBox:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft)
+        abbrBox:SetSize(abbrBoxWidth, 30)
+        abbrBox:SetPosition(abbrBoxLeft, 2)
         abbrBox:SetText(abbrStr)
-        abbrBox:SetSize(140, 22)
-        abbrBox:SetPosition(210, 2)
 
         -- Store changes
         cb.CheckedChanged = function(sender, args)
@@ -143,7 +163,7 @@ function Options:Constructor()
         -- Helper to get the checkbox for parent list iteration
         row.GetCheckbox = function() return cb end
         row.GetTextBox = function() return abbrBox end
-        row:SetSize(370, cbHeight + 4)
+        row:SetSize(rowWidth, cbHeight + 4)
 
         return row
     end
@@ -151,13 +171,13 @@ function Options:Constructor()
     -- Utility: create a category control with header and child ListBox
     local function createCategoryControl(category, dungeons)
         local catControl = Turbine.UI.Control()
-        catControl:SetSize(390, 28)
+        catControl:SetSize(categoryWidth, 28)
 
         -- Header with category checkbox
         local header = Turbine.UI.Control()
         header:SetParent(catControl)
         header:SetPosition(0, 0)
-        header:SetSize(390, 22)
+        header:SetSize(categoryWidth, 22)
 
         local catCB = Turbine.UI.Lotro.CheckBox()
         catCB:SetParent(header)
@@ -165,7 +185,7 @@ function Options:Constructor()
         catCB:SetFont(headerFontFace)
         catCB:SetForeColor(fontColor)
         catCB:SetFontStyle(Turbine.UI.FontStyle.Outline)
-        catCB:SetSize(200, 20)
+        catCB:SetSize(catCBWidth, 20)
         catCB:SetPosition(0, 0)
         catCB:SetChecked(true)
 
@@ -180,7 +200,7 @@ function Options:Constructor()
             listHeight = listHeight + row:GetHeight()
             dungeonList:AddItem(row)
         end
-        dungeonList:SetSize(380, listHeight + 10)
+        dungeonList:SetSize(dungeonListWidth, listHeight + 10)
         catControl:SetHeight(32 + dungeonList:GetHeight())
 
         -- Toggle all dungeons in this category and update child checkboxes
@@ -200,14 +220,15 @@ function Options:Constructor()
         return catControl
     end
 
-    -- Render all categories and dungeons
+    -- Render all categories and dungeons, using pre-sorted sortedCategories
     local listHeight = 0
-    for category, dungeons in pairs(categories) do
+    for _, category in ipairs(sortedCategories) do
+        local dungeons = categories[category]
         local catControl = createCategoryControl(category, dungeons)
         listHeight = listHeight + catControl:GetHeight()
         self.list:AddItem(catControl)
     end
-    self.list:SetSize(400, listHeight)
+    self.list:SetSize(listWidth, listHeight)
 
     -- Set height based on content
     y = y + 10 + listHeight

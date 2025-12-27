@@ -141,6 +141,8 @@ function MainWindow:Constructor()
 end
 
 function MainWindow:Refresh()
+    if self.refreshing then return end
+    self.refreshing = true
 	for index=1, self.list:GetItemCount() do
 		local item = self.list:GetItem(index);
 		StripControl(item, 1);
@@ -266,7 +268,7 @@ function MainWindow:Refresh()
         end
     end
     self:SetWantsUpdates(hasEntries)
-
+    self.refreshing = false
 end
 
 function MainWindow:GetTimeSinceLastRefresh()

@@ -2,8 +2,8 @@
 <PluginConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>1274</Id>
   <Name>LFF Board</Name>
-  <Version>1.0</Version>
-  <Author>lunarwtr</Author>
+  <Version>1.1</Version>
+  <Author>Lunarwater</Author>
   <InfoUrl>http://www.lotrointerface.com/downloads/info1274</InfoUrl>
   <DownloadUrl>http://www.lotrointerface.com/downloads/download1274</DownloadUrl>
   <Descriptors>

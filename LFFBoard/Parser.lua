@@ -3,7 +3,7 @@ Parser = {}
 
 function Parser.normalize_name(str)
     str = string.lower(str or "")
-    str = str:gsub("[/.,]+", " ")
+    str = str:gsub("[/.,+:]+", " ")
     str = str:gsub("^the%s+", "")
     str = str:gsub("[^%w%s]", "")
     str = str:gsub("%s+", " ")

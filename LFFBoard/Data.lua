@@ -112,7 +112,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Garth Agarwen: Arboretum",
-        abbr = {"GA"},
+        abbr = {"Arboretum","GA"},
         region = "Lone-lands",
         level_lower = 32,
         level_upper = nil,
@@ -122,7 +122,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Garth Agarwen: Barrows",
-        abbr = {"GA"},
+        abbr = {"GA Barrows","GA"},
         region = "Lone-lands",
         level_lower = 32,
         level_upper = nil,
@@ -132,7 +132,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Garth Agarwen: Fortress",
-        abbr = {"GA"},
+        abbr = {"GA Fortress","GA"},
         region = "Lone-lands",
         level_lower = 32,
         level_upper = nil,
@@ -142,7 +142,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Goblin-town Throne Room",
-        abbr = {},
+        abbr = {"Goblin-town","Throne Room","GT"},
         region = "Misty Mountains",
         level_lower = 45,
         level_upper = nil,
@@ -152,7 +152,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Fornost: Wraith of Water",
-        abbr = {"Water"},
+        abbr = {"Fornost WoW","Water","Fornost"},
         region = "North Downs",
         level_lower = 25,
         level_upper = 160,
@@ -162,7 +162,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Fornost: Wraith of Earth",
-        abbr = {"Earth"},
+        abbr = {"Fornost WoE","Earth","Fornost"},
         region = "North Downs",
         level_lower = 25,
         level_upper = 160,
@@ -172,7 +172,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Fornost: Wraith of Fire",
-        abbr = {"Fire"},
+        abbr = {"Fornost WoF","Fire","Fornost"},
         region = "North Downs",
         level_lower = 25,
         level_upper = 160,
@@ -182,7 +182,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Fornost: Wraith of Shadow",
-        abbr = {"Shadow"},
+        abbr = {"Fornost WoS","Shadow","Fornost"},
         region = "North Downs",
         level_lower = 25,
         level_upper = 160,
@@ -191,7 +191,7 @@ LFFBoardData = {
     },
     {
         category = "Shadows of Angmar",
-        name = "The Halls of Night",
+        name = "Halls of Night",
         abbr = {"HoN"},
         region = "Angmar",
         level_lower = 40,
@@ -242,7 +242,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Carn Dûm",
-        abbr = {"CD"},
+        abbr = {"Carn Dum","CD"},
         region = "Angmar",
         level_lower = 50,
         level_upper = nil,
@@ -252,7 +252,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Barad Gúlaran",
-        abbr = {"BG"},
+        abbr = {"Barad Gularan","BG"},
         region = "Angmar",
         level_lower = 50,
         level_upper = nil,
@@ -261,8 +261,8 @@ LFFBoardData = {
     },
     {
         category = "Shadows of Angmar",
-        name = "The Library at Tham Mírdain",
-        abbr = {"Lib"},
+        name = "Library at Tham Mírdain",
+        abbr = {"Library","Lib"},
         region = "Eregion",
         level_lower = 50,
         level_upper = 160,
@@ -271,7 +271,7 @@ LFFBoardData = {
     },
     {
         category = "Shadows of Angmar",
-        name = "The School at Tham Mírdain",
+        name = "School at Tham Mírdain",
         abbr = {"School","Sch"},
         region = "Eregion",
         level_lower = 50,
@@ -281,7 +281,7 @@ LFFBoardData = {
     },
     {
         category = "Mines of Moria",
-        name = "The Dark Delving",
+        name = "Dark Delving",
         abbr = {"DD"},
         region = "The Foundations of Stone",
         level_lower = 58,
@@ -291,7 +291,7 @@ LFFBoardData = {
     },
     {
         category = "Mines of Moria",
-        name = "The Forgotten Treasury",
+        name = "Forgotten Treasury",
         abbr = {"FT"},
         region = "The Silvertine Lodes",
         level_lower = 54,
@@ -301,7 +301,7 @@ LFFBoardData = {
     },
     {
         category = "Mines of Moria",
-        name = "The Grand Stair",
+        name = "Grand Stair",
         abbr = {"GS"},
         region = "The Redhorn Lodes",
         level_lower = 56,
@@ -312,7 +312,7 @@ LFFBoardData = {
     {
         category = "Mines of Moria",
         name = "Forges of Khazad-dûm",
-        abbr = {"Forges"},
+        abbr = {"Forges","Khazad-dum"},
         region = "The Flaming Deeps",
         level_lower = 58,
         level_upper = nil,
@@ -331,7 +331,7 @@ LFFBoardData = {
     },
     {
         category = "Mines of Moria",
-        name = "The Sixteenth Hall",
+        name = "Sixteenth Hall",
         abbr = {"16th"},
         region = "Nud-melek",
         level_lower = 58,
@@ -342,7 +342,7 @@ LFFBoardData = {
     {
         category = "Mines of Moria",
         name = "Skûmfil",
-        abbr = {"Skum"},
+        abbr = {"Skumfil","Skum"},
         region = "The Foundations of Stone",
         level_lower = 58,
         level_upper = nil,
@@ -351,7 +351,7 @@ LFFBoardData = {
     },
     {
         category = "Scourge of Khazad-dûm",
-        name = "The Mirror-halls of Lumul-nar",
+        name = "Mirror-halls of Lumul-nar",
         abbr = {"HoM"},
         region = "Zirakzigil",
         level_lower = 58,
@@ -361,8 +361,8 @@ LFFBoardData = {
     },
     {
         category = "Scourge of Khazad-dûm",
-        name = "The Water Wheels: Nalâ-dûm",
-        abbr = {"WW"},
+        name = "Water Wheels: Nalâ-dûm",
+        abbr = {"Water Wheels","Nala-dum","Naladum","WW"},
         region = "The Water-works",
         level_lower = 58,
         level_upper = nil,
@@ -392,7 +392,7 @@ LFFBoardData = {
     {
         category = "Tower of Dol Guldur",
         name = "Dungeons of Dol Guldur",
-        abbr = {"Dungeons"},
+        abbr = {"Dol Guldur"},
         region = "Dol Guldur",
         level_lower = 65,
         level_upper = 160,
@@ -412,7 +412,7 @@ LFFBoardData = {
     {
         category = "Tower of Dol Guldur",
         name = "Sammath Gûl",
-        abbr = {"SG"},
+        abbr = {"Sammath Gul","SG"},
         region = "Dol Guldur",
         level_lower = 65,
         level_upper = 160,
@@ -432,7 +432,7 @@ LFFBoardData = {
     {
         category = "In Their Absence",
         name = "Sâri-surma",
-        abbr = {"SS"},
+        abbr = {"Sari-surma","SS"},
         region = "Forochel",
         level_lower = 65,
         level_upper = 160,
@@ -462,7 +462,7 @@ LFFBoardData = {
     {
         category = "Rise of Isengard",
         name = "Dargnákh Unleashed",
-        abbr = {"DU"},
+        abbr = {"Dargnakh Unleashed","Dargnakh","DU"},
         region = "Isengard",
         level_lower = 75,
         level_upper = nil,
@@ -491,7 +491,7 @@ LFFBoardData = {
     },
     {
         category = "Rise of Isengard",
-        name = "The Foundry",
+        name = "Foundry",
         abbr = {"Foundry"},
         region = "Isengard",
         level_lower = 75,
@@ -510,7 +510,7 @@ LFFBoardData = {
         group = {"Fellowship"}
     },
     {
-        category = "The Road to Erebor",
+        category = "Road to Erebor",
         name = "Seat of the Great Goblin",
         abbr = {"SGG"},
         region = "Misty Mountains",
@@ -520,7 +520,7 @@ LFFBoardData = {
         group = {"Small Fellowship"}
     },
     {
-        category = "The Road to Erebor",
+        category = "Road to Erebor",
         name = "Iorbar's Peak",
         abbr = {"IP"},
         region = "Misty Mountains",
@@ -530,7 +530,7 @@ LFFBoardData = {
         group = {"Small Fellowship"}
     },
     {
-        category = "The Road to Erebor",
+        category = "Road to Erebor",
         name = "Webs of the Scuttledells",
         abbr = {"Webs"},
         region = "Mirkwood",
@@ -540,8 +540,8 @@ LFFBoardData = {
         group = {"Small Fellowship"}
     },
     {
-        category = "The Road to Erebor",
-        name = "The Bells of Dale",
+        category = "Road to Erebor",
+        name = "Bells of Dale",
         abbr = {"Bells"},
         region = "Erebor",
         level_lower = 20,
@@ -561,7 +561,7 @@ LFFBoardData = {
     },
     {
         category = "Helm's Deep",
-        name = "The Deeping Wall",
+        name = "Deeping Wall",
         abbr = {"Wall","DW"},
         region = "West Rohan",
         level_lower = 10,
@@ -571,7 +571,7 @@ LFFBoardData = {
     },
     {
         category = "Helm's Deep",
-        name = "The Deeping-coomb",
+        name = "Deeping-coomb",
         abbr = {"Coomb","DC"},
         region = "West Rohan",
         level_lower = 10,
@@ -581,7 +581,7 @@ LFFBoardData = {
     },
     {
         category = "Helm's Deep",
-        name = "The Glittering Caves",
+        name = "Glittering Caves",
         abbr = {"GC"},
         region = "West Rohan",
         level_lower = 10,
@@ -591,7 +591,7 @@ LFFBoardData = {
     },
     {
         category = "Helm's Deep",
-        name = "The Hornburg",
+        name = "Hornburg",
         abbr = {"Hornburg"},
         region = "West Rohan",
         level_lower = 10,
@@ -612,7 +612,7 @@ LFFBoardData = {
     {
         category = "War for Gondor",
         name = "Defence of Minas Tirith",
-        abbr = {"MT","Defence"},
+        abbr = {"Defence of MT","MT","Defence"},
         region = "Old Anórien",
         level_lower = 10,
         level_upper = 160,
@@ -622,7 +622,7 @@ LFFBoardData = {
     {
         category = "War for Gondor",
         name = "Hammer of the Underworld",
-        abbr = {"Hammer"},
+        abbr = {"HotU","Hammer"},
         region = "Old Anórien",
         level_lower = 10,
         level_upper = 160,
@@ -641,7 +641,7 @@ LFFBoardData = {
     },
     {
         category = "Ashes of Osgiliath",
-        name = "The Ruined City",
+        name = "Ruined City",
         abbr = {"RC"},
         region = "Eastern Gondor",
         level_lower = 50,
@@ -651,7 +651,7 @@ LFFBoardData = {
     },
     {
         category = "Ashes of Osgiliath",
-        name = "The Dome of Stars",
+        name = "Dome of Stars",
         abbr = {"DoS","Dome"},
         region = "Eastern Gondor",
         level_lower = 50,
@@ -671,7 +671,7 @@ LFFBoardData = {
     },
     {
         category = "Battle of Pelennor",
-        name = "The Quays of the Harlond",
+        name = "Quays of the Harlond",
         abbr = {"Quays"},
         region = "Old Anórien",
         level_lower = 75,
@@ -681,7 +681,7 @@ LFFBoardData = {
     },
     {
         category = "Battle of Pelennor",
-        name = "The Silent Street",
+        name = "Silent Street",
         abbr = {"TSS"},
         region = "Old Anórien",
         level_lower = 75,
@@ -691,7 +691,7 @@ LFFBoardData = {
     },
     {
         category = "Plateau of Gorgoroth",
-        name = "The Court of Seregost",
+        name = "Court of Seregost",
         abbr = {"CoS"},
         region = "The Plateau of Gorgoroth",
         level_lower = 105,
@@ -701,8 +701,8 @@ LFFBoardData = {
     },
     {
         category = "Plateau of Gorgoroth",
-        name = "The Dungeons of Naerband",
-        abbr = {"DoN"},
+        name = "Dungeons of Naerband",
+        abbr = {"DoN","Naerband"},
         region = "The Plateau of Gorgoroth",
         level_lower = 105,
         level_upper = 160,
@@ -741,8 +741,8 @@ LFFBoardData = {
     },
     {
         category = "Gladdenmere",
-        name = "The Depths of Kidzul-kâlah",
-        abbr = {"KK"},
+        name = "Depths of Kidzul-kâlah",
+        abbr = {"Kidzul-kalah","KK"},
         region = "Vales of Anduin",
         level_lower = 120,
         level_upper = nil,
@@ -781,7 +781,7 @@ LFFBoardData = {
     },
     {
         category = "Minas Morgul",
-        name = "The Harrowing of Morgul",
+        name = "Harrowing of Morgul",
         abbr = {"Harrow","Harrowing"},
         region = "Minas Morgul",
         level_lower = 121,
@@ -792,7 +792,7 @@ LFFBoardData = {
     {
         category = "Minas Morgul",
         name = "Bâr Nírnaeth, the Houses of Lamentation",
-        abbr = {"BN"},
+        abbr = {"Bar Nirnaeth","BN"},
         region = "Minas Morgul",
         level_lower = 121,
         level_upper = 160,
@@ -802,7 +802,7 @@ LFFBoardData = {
     {
         category = "Minas Morgul",
         name = "Ghashan-kútot, the Hall of Black Lore",
-        abbr = {"GK"},
+        abbr = {"Ghashan-kutot","GK"},
         region = "Minas Morgul",
         level_lower = 121,
         level_upper = 160,
@@ -811,7 +811,7 @@ LFFBoardData = {
     },
     {
         category = "Minas Morgul",
-        name = "The Fallen Kings",
+        name = "Fallen Kings",
         abbr = {"Fallen Kings"},
         region = "Minas Morgul",
         level_lower = 121,
@@ -822,7 +822,7 @@ LFFBoardData = {
     {
         category = "Mists of Wilderland",
         name = "Askâd-mazal, the Chamber of Shadows",
-        abbr = {"AM"},
+        abbr = {"Askad-mazal","AM"},
         region = "The Foundations of Stone",
         level_lower = 50,
         level_upper = 160,
@@ -872,7 +872,7 @@ LFFBoardData = {
     {
         category = "Fate of Gundabad",
         name = "Adkhât-zahhar, the Houses of Rest",
-        abbr = {"HoR"},
+        abbr = {"Houses of Rest","Adkhat-zahhar","HoR"},
         region = "Gundabad",
         level_lower = 140,
         level_upper = 160,
@@ -890,7 +890,7 @@ LFFBoardData = {
         group = {"Solo","Duo","Fellowship"}
     },
     {
-        category = "The Return to Carn Dûm",
+        category = "Return to Carn Dûm",
         name = "Sant Lhoer, the Poison Gardens",
         abbr = {"SL"},
         region = "Angmar",
@@ -900,7 +900,7 @@ LFFBoardData = {
         group = {"Solo","Duo","Small Fellowship"}
     },
     {
-        category = "The Return to Carn Dûm",
+        category = "Return to Carn Dûm",
         name = "Thaurisgar, the Vile Apothecary",
         abbr = {"Thaur"},
         region = "Angmar",
@@ -910,7 +910,7 @@ LFFBoardData = {
         group = {"Solo","Duo","Small Fellowship"}
     },
     {
-        category = "The Return to Carn Dûm",
+        category = "Return to Carn Dûm",
         name = "Sagroth, Lair of Vermin",
         abbr = {"Sagroth"},
         region = "Angmar",
@@ -921,8 +921,8 @@ LFFBoardData = {
     },
     {
         category = "Corsairs of Umbar",
-        name = "The Streets of Râhal Bakh",
-        abbr = {"Streets"},
+        name = "Streets of Râhal Bakh",
+        abbr = {"Rahal Bakh","Streets"},
         region = "Cape of Umbar",
         level_lower = 150,
         level_upper = 160,
@@ -931,7 +931,7 @@ LFFBoardData = {
     },
     {
         category = "Corsairs of Umbar",
-        name = "The Isle of Storms",
+        name = "Isle of Storms",
         abbr = {"Isle"},
         region = "The Shield Isles",
         level_lower = 150,
@@ -942,7 +942,7 @@ LFFBoardData = {
     {
         category = "Corsairs of Umbar",
         name = "Dahâl Huliz, The Arena",
-        abbr = {"Arena"},
+        abbr = {"Dahal Huliz","Arena"},
         region = "Cape of Umbar",
         level_lower = 150,
         level_upper = 160,
@@ -951,7 +951,7 @@ LFFBoardData = {
     },
     {
         category = "Corsairs of Umbar",
-        name = "The Dragon and the Storm",
+        name = "Dragon and the Storm",
         abbr = {"Dragon"},
         region = "Cape of Umbar",
         level_lower = 150,
@@ -962,7 +962,7 @@ LFFBoardData = {
     {
         category = "Legacy of Morgoth",
         name = "Ashunûg, the Fane of the Accursed",
-        abbr = {"Fane"},
+        abbr = {"Fane","Ashunung"},
         region = "Ambarûl",
         level_lower = 150,
         level_upper = 160,
@@ -972,7 +972,7 @@ LFFBoardData = {
     {
         category = "Legacy of Morgoth",
         name = "Nirgambâr, the Restless Tomb",
-        abbr = {"Tomb"},
+        abbr = {"Tomb","Nirgambar"},
         region = "Imhûlar",
         level_lower = 150,
         level_upper = 160,
@@ -982,7 +982,7 @@ LFFBoardData = {
     {
         category = "Legacy of Morgoth",
         name = "Tûl Zakana, the Well of Forgetting",
-        abbr = {"Well"},
+        abbr = {"Tul Zakana","Well"},
         region = "Khûd Zagin",
         level_lower = 150,
         level_upper = 160,
@@ -992,12 +992,42 @@ LFFBoardData = {
     {
         category = "Legacy of Morgoth",
         name = "Dun Shûma, The King's Fortress",
-        abbr = {"DS"},
+        abbr = {"Kings Fortress","Dun Shuma","DS"},
         region = "Khûd Zagin",
         level_lower = 150,
         level_upper = 160,
         tiers = 3,
         group = {"Solo","Duo","Fellowship"}
+    },
+    {
+        category = "Kingdoms of Harad",
+        name = "Ekal-nêbi, the Fallen Palace",
+        abbr = {"Fallen Palace","Ekal-nebi","Ekalnebi","Ekal"},
+        region = "Mûr Ghala",
+        level_lower = 160,
+        level_upper = nil,
+        tiers = 3,
+        group = {"Fellowship"}
+    },
+    {
+        category = "Kingdoms of Harad",
+        name = "Kôth Rau, the Wailing Hold",
+        abbr = {"Koth Rau","Wailing Hold","Koth"},
+        region = "Mûr Ghala",
+        level_lower = 160,
+        level_upper = nil,
+        tiers = 3,
+        group = {"Fellowship"}
+    },
+    {
+        category = "Kingdoms of Harad",
+        name = "Treasure Caves of Hurum Kâna",
+        abbr = {"Treasure Caves","Hurum Kana","Hurum"},
+        region = "Mûr Ghala",
+        level_lower = 160,
+        level_upper = nil,
+        tiers = 3,
+        group = {"Small Fellowship"}
     },
     {
         category = "Other",
@@ -1071,8 +1101,8 @@ LFFBoardData = {
     },
     {
         category = "Shadows of Angmar",
-        name = "The Rift of Nûrz Ghâshu",
-        abbr = {"Rift"},
+        name = "Rift of Nûrz Ghâshu",
+        abbr = {"Nurz Gashu","Rift"},
         region = "Angmar",
         level_lower = 50,
         level_upper = nil,
@@ -1101,7 +1131,7 @@ LFFBoardData = {
     },
     {
         category = "Mines of Moria",
-        name = "The Vile Maw",
+        name = "Vile Maw",
         abbr = {"VM","Watcher"},
         region = "The Water-works",
         level_lower = 60,
@@ -1113,7 +1143,7 @@ LFFBoardData = {
         category = "Mines of Moria",
         name = "Filikul",
         abbr = {"Turtle"},
-        region = "The Water-works",
+        region = "Water-works",
         level_lower = 60,
         level_upper = nil,
         tiers = 1,
@@ -1122,7 +1152,7 @@ LFFBoardData = {
     {
         category = "Scourge of Khazad-dûm",
         name = "Dâr Narbugud",
-        abbr = {"DN"},
+        abbr = {"Dar Narbugud","DN"},
         region = "Foundations of Stone",
         level_lower = 60,
         level_upper = nil,
@@ -1170,7 +1200,7 @@ LFFBoardData = {
         group = {"Raid"}
     },
     {
-        category = "The Road to Erebor",
+        category = "Road to Erebor",
         name = "Flight to the Lonely Mountain",
         abbr = {"Flight"},
         region = "Erebor",
@@ -1180,8 +1210,8 @@ LFFBoardData = {
         group = {"Raid"}
     },
     {
-        category = "The Road to Erebor",
-        name = "The Fires of Smaug",
+        category = "Road to Erebor",
+        name = "Fires of Smaug",
         abbr = {"Smaug"},
         region = "Erebor",
         level_lower = 20,
@@ -1190,8 +1220,8 @@ LFFBoardData = {
         group = {"Raid"}
     },
     {
-        category = "The Road to Erebor",
-        name = "The Battle for Erebor",
+        category = "Road to Erebor",
+        name = "Battle for Erebor",
         abbr = {"BfE"},
         region = "Erebor",
         level_lower = 20,
@@ -1201,7 +1231,7 @@ LFFBoardData = {
     },
     {
         category = "Helm's Deep",
-        name = "The Deeping Wall",
+        name = "Deeping Wall",
         abbr = {"Wall","DW"},
         region = "West Rohan",
         level_lower = 10,
@@ -1220,8 +1250,8 @@ LFFBoardData = {
         group = {"Raid"}
     },
     {
-        category = "The Plateau of Gorgoroth",
-        name = "The Abyss of Mordath",
+        category = "Plateau of Gorgoroth",
+        name = "Abyss of Mordath",
         abbr = {"Abyss"},
         region = "The Plateau of Gorgoroth",
         level_lower = 115,
@@ -1231,7 +1261,7 @@ LFFBoardData = {
     },
     {
         category = "Grey Mountains",
-        name = "The Anvil of Winterstith",
+        name = "Anvil of Winterstith",
         abbr = {"Anvil"},
         region = "Grey Mountains",
         level_lower = 120,
@@ -1252,7 +1282,7 @@ LFFBoardData = {
     {
         category = "War of Three Peaks",
         name = "Amdân Dammul, the Bloody Threshold",
-        abbr = {"AD"},
+        abbr = {"Bloody Threshold","Amdan Dammul","AD"},
         region = "The War of Three Peaks",
         level_lower = 130,
         level_upper = nil,
@@ -1271,8 +1301,8 @@ LFFBoardData = {
     },
     {
         category = "Fate of Gundabad",
-        name = "The Hiddenhoard of Abnankâra",
-        abbr = {"HH"},
+        name = "Hiddenhoard of Abnankâra",
+        abbr = {"Abnankara","HH"},
         region = "Gundabad",
         level_lower = 140,
         level_upper = nil,
@@ -1280,9 +1310,9 @@ LFFBoardData = {
         group = {"Raid"}
     },
     {
-        category = "The Return to Carn Dûm",
+        category = "Return to Carn Dûm",
         name = "Gwathrenost, the Witch-king's Citadel",
-        abbr = {"Gwath"},
+        abbr = {"Gwathrenost","Gwath"},
         region = "Angmar",
         level_lower = 140,
         level_upper = nil,
@@ -1292,7 +1322,7 @@ LFFBoardData = {
     {
         category = "Corsairs of Umbar",
         name = "Depths of Mâkhda Khorbo",
-        abbr = {"DMK"},
+        abbr = {"Makhda Khorbo","DMK"},
         region = "Cape of Umbar",
         level_lower = 150,
         level_upper = nil,
@@ -1301,8 +1331,8 @@ LFFBoardData = {
     },
     {
         category = "Legacy of Morgoth",
-        name = "The Temple of Utug-bûr - Dhórgruth",
-        abbr = {"TuB w1"},
+        name = "Temple of Utug-bûr - Dhórgruth",
+        abbr = {"Utug-bur","TuB w1"},
         region = "Urash Dâr",
         level_lower = 150,
         level_upper = nil,
@@ -1311,8 +1341,8 @@ LFFBoardData = {
     },
     {
         category = "Legacy of Morgoth",
-        name = "The Temple of Utug-bûr - Thûr Hin",
-        abbr = {"TuB w2"},
+        name = "Temple of Utug-bûr - Thûr Hin",
+        abbr = {"Utug-bur","Thur Hin","TuB w2"},
         region = "Urash Dâr",
         level_lower = 150,
         level_upper = nil,
@@ -1321,8 +1351,8 @@ LFFBoardData = {
     },
     {
         category = "Legacy of Morgoth",
-        name = "The Temple of Utug-bûr - Inner Sanctum",
-        abbr = {"TuB w3"},
+        name = "Temple of Utug-bûr - Inner Sanctum",
+        abbr = {"Utug-bur","Inner Sanctum","TuB w3"},
         region = "Urash Dâr",
         level_lower = 150,
         level_upper = nil,
