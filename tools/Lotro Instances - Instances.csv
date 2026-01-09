@@ -1,18 +1,18 @@
 Category,Name,Abbr.,Region,Level,Tiers,Group,Available,Prereqs,Challenge,Note
-Shadows of Angmar,Great Barrow: The Maze,Maze,Bree-land,20-160,1,Fellowship,Free,,Daily,"Located in Southern Barrow-downs, see also the Great Barrow"
-Shadows of Angmar,Great Barrow: Thadúr,Thadur,Bree-land,20-160,1,Fellowship,Free,,Daily,"Located in Southern Barrow-downs, see also the Great Barrow"
-Shadows of Angmar,Great Barrow: Sambrog,Sammy,Bree-land,20-160,1,Fellowship,Free,Maze and Thadúr,Daily,"Located in Southern Barrow-downs, see also the Great Barrow"
+Shadows of Angmar,Great Barrow: The Maze,"Maze, Great Barrow, GB",Bree-land,20-160,1,Fellowship,Free,,Daily,"Located in Southern Barrow-downs, see also the Great Barrow"
+Shadows of Angmar,Great Barrow: Thadúr,"Thadur, Great Barrow, GB",Bree-land,20-160,1,Fellowship,Free,,Daily,"Located in Southern Barrow-downs, see also the Great Barrow"
+Shadows of Angmar,Great Barrow: Sambrog,"Sambrog, Sammy, Great Barrow, GB",Bree-land,20-160,1,Fellowship,Free,Maze and Thadúr,Daily,"Located in Southern Barrow-downs, see also the Great Barrow"
 Shadows of Angmar,Inn of the Forsaken,IoF or IotF,Lone-lands,20-160,2,Small Fellowship,Free,Discover,Daily,"Located inside the Forsaken Inn, in the basement"
-Shadows of Angmar,Garth Agarwen: Arboretum,"Arboretum, GA",Lone-lands,32,1,Small Fellowship,Free,,Daily,In Garth Agarwen
-Shadows of Angmar,Garth Agarwen: Barrows,"GA Barrows, GA",Lone-lands,32,1,Small Fellowship,Free,,Daily,In Garth Agarwen
-Shadows of Angmar,Garth Agarwen: Fortress,"GA Fortress, GA",Lone-lands,32,1,Fellowship,Free,,Daily,In Garth Agarwen
+Shadows of Angmar,Garth Agarwen: Arboretum,"Arboretum, Garth Agarwen, GA",Lone-lands,32,1,Small Fellowship,Free,,Daily,In Garth Agarwen
+Shadows of Angmar,Garth Agarwen: Barrows,"GA Barrows, Garth Agarwen, GA",Lone-lands,32,1,Small Fellowship,Free,,Daily,In Garth Agarwen
+Shadows of Angmar,Garth Agarwen: Fortress,"GA Fortress, Garth Agarwen, GA",Lone-lands,32,1,Fellowship,Free,,Daily,In Garth Agarwen
 Shadows of Angmar,Goblin-town Throne Room,"Goblin-town, Throne Room, GT",Misty Mountains,45,1,Fellowship,Free,,,The heart of Goblin-town
-Shadows of Angmar,Fornost: Wraith of Water,"Fornost WoW, Water, Fornost",North Downs,25-160,2,Fellowship,Free,,Daily,See also Fornost
-Shadows of Angmar,Fornost: Wraith of Earth,"Fornost WoE, Earth, Fornost",North Downs,25-160,2,Fellowship,Free,Water,Daily,See also Fornost
-Shadows of Angmar,Fornost: Wraith of Fire,"Fornost WoF, Fire, Fornost",North Downs,25-160,2,Fellowship,Free,Earth,Daily,See also Fornost
-Shadows of Angmar,Fornost: Wraith of Shadow,"Fornost WoS, Shadow, Fornost",North Downs,25-160,2,Fellowship,Free,Fire,Daily,See also Fornost
+Shadows of Angmar,Fornost: Wraith of Water,"Fornost WoW, Fornost Water, Fornost",North Downs,25-160,2,Fellowship,Free,,Daily,See also Fornost
+Shadows of Angmar,Fornost: Wraith of Earth,"Fornost WoE, Fornost Earth, Fornost",North Downs,25-160,2,Fellowship,Free,Water,Daily,See also Fornost
+Shadows of Angmar,Fornost: Wraith of Fire,"Fornost WoF, Fornost Fire, Fornost",North Downs,25-160,2,Fellowship,Free,Earth,Daily,See also Fornost
+Shadows of Angmar,Fornost: Wraith of Shadow,"Fornost WoS, Fornost Shadow, Fornost",North Downs,25-160,2,Fellowship,Free,Fire,Daily,See also Fornost
 Shadows of Angmar,Halls of Night,HoN,Angmar,40-160,2,Small Fellowship,Free,Discover,Daily,East of Aughaire
-Shadows of Angmar,Glinghant,Gling or Gardens,Evendim (Annúminas),40-160,1,Fellowship,Free,,Daily,"The former gardens of Annúminas, now corrupted by evil"
+Shadows of Angmar,Glinghant,"Gling, Gardens",Evendim (Annúminas),40-160,1,Fellowship,Free,,Daily,"The former gardens of Annúminas, now corrupted by evil"
 Shadows of Angmar,Ost Elendil,OE,Evendim (Annúminas),40-160,1,Fellowship,Free,,Daily,The throne room and outlying chambers of Annúminas
 Shadows of Angmar,Haudh Valandil,HV,Evendim (Annúminas),40-160,1,Fellowship,Free,,Daily,"The tomb of Valandil, third King of Arnor"
 Shadows of Angmar,Urugarth,Uru,Angmar,50,1,Fellowship,Free,,,South-east of Carn Dûm in NE Angmar
@@ -52,7 +52,7 @@ Helm's Deep,Deeping Wall,Wall or DW,West Rohan,10-160,,"Solo/Duo, Raid",Free,Dik
 Helm's Deep,Deeping-coomb,Coomb or DC,West Rohan,10-160,,Solo/Duo,Free,Wall,,Epic Battles
 Helm's Deep,Glittering Caves,GC,West Rohan,10-160,,"Solo/Duo, Small Fellowship",Free,Coomb,,Epic Battles
 Helm's Deep,Hornburg,Hornburg,West Rohan,10-160,,Solo/Duo,Free,GC,,Epic Battles
-War for Gondor,Retaking Pelargir,Pela or Pel or Pelargir,Central Gondor,10-160,,"Solo/Duo, Fellowship",Free,,,Epic Battles
+War for Gondor,Retaking Pelargir,"Pelargir, Pelagir, Pela, Pel",Central Gondor,10-160,,"Solo/Duo, Fellowship",Free,,,Epic Battles
 War for Gondor,Defence of Minas Tirith,"Defence of MT, MT, Defence",Old Anórien,10-160,,"Solo/Duo, Small Fellowship",Free,,,Epic Battles
 War for Gondor,Hammer of the Underworld,"HotU, Hammer",Old Anórien,10-160,,"Solo/Duo, Fellowship",Free,Defence,,Epic Battles
 Ashes of Osgiliath,Sunken Labyrinth,SL,Eastern Gondor,50-160,2,Small Fellowship,VIP/QP,,Daily,Destroy the hidden forces beneath Osgiliath
@@ -69,12 +69,12 @@ Grey Mountains,Thikil-gundu,TG,Ered Mithrin and Withered Heath,118-160,5,"Solo, 
 Gladdenmere,Depths of Kidzul-kâlah,"Kidzul-kalah, KK",Vales of Anduin,120,3,"Solo/Duo, Fellowship",VIP/QP,Discover,,
 Minas Morgul,"Eithel Gwaur, the Filth-well",FW,Minas Morgul,121-160,5,"Solo/Duo, Small Fellowship",Exp,Discover,,
 Minas Morgul,"Gath Daeroval, the Shadow-roost",Roost,Minas Morgul,121-160,5,"Solo/Duo, Small Fellowship",Exp,Discover,,
-Minas Morgul,"Gorthad Nûr, the Deep-barrow",DB or Barrow,Minas Morgul,121-160,5,"Solo/Duo, Small Fellowship",Exp,Discover,,
+Minas Morgul,"Gorthad Nûr, the Deep-barrow","Deep Barrow, Deep-barrow, DB",Minas Morgul,121-160,5,"Solo/Duo, Small Fellowship",Exp,Discover,,
 Minas Morgul,Harrowing of Morgul,Harrow or Harrowing,Minas Morgul,121-160,5,"Solo/Duo, Small Fellowship",Exp,,,
 Minas Morgul,"Bâr Nírnaeth, the Houses of Lamentation","Bar Nirnaeth, BN",Minas Morgul,121-160,3,"Solo/Duo, Fellowship",Exp,Discover,,
 Minas Morgul,"Ghashan-kútot, the Hall of Black Lore","Ghashan-kutot, GK",Minas Morgul,121-160,3,"Solo/Duo, Fellowship",Exp,Discover,,
 Minas Morgul,Fallen Kings,Fallen Kings,Minas Morgul,121-160,3,"Solo/Duo, Fellowship",Exp,The Nine,,
-Mists of Wilderland,"Askâd-mazal, the Chamber of Shadows","Askad-mazal, AM",The Foundations of Stone,50-160,5,"Solo/Duo, Small Fellowship",VIP/QP,Discover,,
+Mists of Wilderland,"Askâd-mazal, the Chamber of Shadows","Askad-mazal, Chamber of Shadows",The Foundations of Stone,50-160,5,"Solo/Duo, Small Fellowship",VIP/QP,Discover,,
 War of Three Peaks,"Shakalush, the Stair Battle",Stairs,Elderslade,130-160,5,"Solo/Duo, Fellowship",Exp,Discover,,
 War of Three Peaks,Woe of the Willow,Woe,Bree-land,20-160,5,"Solo/Duo, Small Fellowship",VIP/QP,,,
 Fate of Gundabad,Assault on Dhúrstrok,AoD,Gundabad,130-160,5,"Solo/Duo, Small Fellowship",Exp,Discover,,

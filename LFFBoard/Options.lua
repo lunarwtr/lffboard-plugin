@@ -4,14 +4,26 @@ import "Turbine.UI"
 import "Turbine.UI.Lotro"
 import "LFFBoard"
 
+---@type LFFBoardGlobal
+LFFBoard = LFFBoard or {}
+
+-- Helper: compare two arrays for equality (same values & order)
+local function arraysEqual(a, b)
+    if #a ~= #b then return false end
+    for i = 1, #a do
+        if a[i] ~= b[i] then return false end
+    end
+    return true
+end
+
 Options = class(Turbine.UI.Control)
 
 function Options:Constructor()
     Turbine.UI.Control.Constructor(self)
-    
+
     local cbWidth = 230
     local abbrBoxWidth = 340
-    local rowWidth = cbWidth + abbrBoxWidth + 10
+    local rowWidth = cbWidth + abbrBoxWidth + 20 + 10
     local abbrBoxLeft = cbWidth + 10
     local categoryWidth = rowWidth + 20
     local listWidth = categoryWidth + 10
@@ -22,6 +34,8 @@ function Options:Constructor()
     local fontFace = Turbine.UI.Lotro.Font.Verdana14;
     local headerFontFace = Turbine.UI.Lotro.Font.VerdanaBold16;
     local backColor = Turbine.UI.Color(0.1, 0.1, 0.1);
+    local textboxBackColor = Turbine.UI.Color(0,0,0);
+    local textboxModifiedBackColor = Turbine.UI.Color(0.2, 0.3, 0.5);
     self:SetBackColor(backColor);
     self:SetWidth(listWidth);
 
@@ -128,17 +142,40 @@ function Options:Constructor()
         cb:SetPosition(0, 2)
         row:SetHeight(cbHeight + 4)
 
-        local abbrStr = table.concat(setting.abbr or {}, ", ")
+        local abbrStr = table.concat(setting.abbr ~= nil and setting.abbr or entry.abbr or {}, ", ")
         local abbrBox = Turbine.UI.Lotro.TextBox()
         abbrBox:SetParent(row)
         abbrBox:SetFont(fontFace);
         abbrBox:SetForeColor(fontColor);
-        abbrBox:SetOutlineColor(Turbine.UI.Color(0,0,0));
+        abbrBox:SetOutlineColor(textboxBackColor);
         abbrBox:SetFontStyle(Turbine.UI.FontStyle.Outline);
         abbrBox:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft)
         abbrBox:SetSize(abbrBoxWidth, 30)
         abbrBox:SetPosition(abbrBoxLeft, 2)
         abbrBox:SetText(abbrStr)
+
+        local defaultAbbr = entry.abbr or {}
+        -- Reset icon
+        local resetIcon = Turbine.UI.Control()
+        resetIcon:SetParent(row)
+        resetIcon:SetSize(16, 16)
+        resetIcon:SetPosition(abbrBoxLeft + abbrBoxWidth + 4, 4)
+        resetIcon:SetBackground(0x410001c6)
+        resetIcon:SetVisible(false)
+        resetIcon:SetMouseVisible(true)
+        resetIcon.MouseClick = function(sender, args)
+            abbrBox:SetText(table.concat(defaultAbbr, ", "))
+            abbrBox.TextChanged(abbrBox, {})
+        end
+
+        -- Set initial background color and icon visibility if abbr differs from default
+        if setting.abbr ~= nil and not arraysEqual(setting.abbr, defaultAbbr) then
+            abbrBox:SetBackColor(textboxModifiedBackColor)
+            resetIcon:SetVisible(true)
+        else
+            abbrBox:SetBackColor(textboxBackColor)
+            resetIcon:SetVisible(false)
+        end
 
         -- Store changes
         cb.CheckedChanged = function(sender, args)
@@ -148,16 +185,23 @@ function Options:Constructor()
         abbrBox.TextChanged = function(sender, args)
             LFFBoard.settings.dungeons[entry.name] = LFFBoard.settings.dungeons[entry.name] or {}
             local raw = abbrBox:GetText()
-            if raw == nil or raw:match('^%s*$') then
-                LFFBoard.settings.dungeons[entry.name].abbr = {}
-            else
-                local abbrs = {}
+            local abbrs = {}
+            if raw ~= nil and not raw:match('^%s*$') then
                 for abbr in raw:gmatch('[^,]+') do
                     local trimmed = abbr:gsub('^%s+', ''):gsub('%s+$', '')
                     if trimmed ~= '' then table.insert(abbrs, trimmed) end
                 end
-                LFFBoard.settings.dungeons[entry.name].abbr = abbrs
             end
+            if arraysEqual(abbrs, defaultAbbr) then
+                LFFBoard.settings.dungeons[entry.name].abbr = nil
+                abbrBox:SetBackColor(textboxBackColor) -- default
+                resetIcon:SetVisible(false)
+            else
+                LFFBoard.settings.dungeons[entry.name].abbr = abbrs
+                abbrBox:SetBackColor(textboxModifiedBackColor)
+                resetIcon:SetVisible(true)
+            end
+            LFFBoard.abbrevMap = Parser.build_abbr_map(LFFBoardData, LFFBoard.settings.dungeons or {})
         end
 
         -- Helper to get the checkbox for parent list iteration
@@ -260,12 +304,16 @@ function Options:Constructor()
 end
 
 -- Utility: save settings
+---@param settings LFFBoardSettings|nil
+---@return void
 function SaveLFFBoardSettings(settings)
     Turbine.PluginData.Save( Turbine.DataScope.Character, "LFFBoardSettings", settings or {} )
 end
 
 -- Utility: load and default settings
 -- Helper to initialize global settings
+---@param reset boolean|nil If true, reset to default settings
+---@return LFFBoardSettings settings
 function LoadLFFBoardSettings(reset)
     local displayWidth = Turbine.UI.Display:GetWidth()
     local displayHeight = Turbine.UI.Display:GetHeight()
@@ -292,8 +340,8 @@ function LoadLFFBoardSettings(reset)
             },
             channels = {
                 lff = true,
-                world = true,
-                kinship = true
+                world = false,
+                kinship = false
             },
             fadeWindow = true,
             staleSeconds = 180,
@@ -301,16 +349,16 @@ function LoadLFFBoardSettings(reset)
         }
         for _, entry in ipairs(LFFBoardData) do
             settings.dungeons[entry.name] = {
-                enabled = true,
-                abbr = entry.abbr or {}
+                enabled = true
             }
+            -- Only set abbr if not default (for new settings, abbr is always default, so skip)
         end
     else
         if settings.windowVisible == nil then settings.windowVisible = true end
         if settings.windowOpacity == nil then settings.windowOpacity = 70 end
         if settings.channels == nil then
-            settings.channels = { 
-                lff = true, world = true, kinship = true
+            settings.channels = {
+                lff = true, world = false, kinship = false
             }
         end
         if settings.windowPos == nil then
@@ -330,11 +378,15 @@ function LoadLFFBoardSettings(reset)
         if settings.staleSeconds == nil then settings.staleSeconds = 180 end
         if settings.dungeons == nil then settings.dungeons = {} end
         for _, entry in ipairs(LFFBoardData) do
-            if settings.dungeons[entry.name] == nil then
-                settings.dungeons[entry.name] = {
-                    enabled = true,
-                    abbr = entry.abbr or {}
-                }
+            local defaultAbbr = entry.abbr or {}
+            local dungeonSetting = settings.dungeons[entry.name]
+            if dungeonSetting == nil then
+                settings.dungeons[entry.name] = { enabled = true }
+                -- Only set abbr if not default (for new settings, abbr is always default, so skip)
+            elseif dungeonSetting.abbr ~= nil then
+                if arraysEqual(dungeonSetting.abbr, defaultAbbr) then
+                    settings.dungeons[entry.name].abbr = nil
+                end
             end
         end
         if tonumber(settings.windowPos.left) > (displayWidth - 100) or tonumber(settings.windowPos.top) > (displayHeight - 100) then

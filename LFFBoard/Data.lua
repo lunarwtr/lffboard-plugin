@@ -52,7 +52,7 @@ LFFBoardData = {
     {
         category = "Yule Festival",
         name = "Boss from the Vaults: Storvâgûn",
-        abbr = {"Storvâgûn","Storv","Strov","Storva"},
+        abbr = {"Storvâgûn","Storvagun","Storv","Strov","Storva"},
         region = "Misty Mountains",
         level_lower = 50,
         level_upper = 160,
@@ -72,7 +72,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Great Barrow: The Maze",
-        abbr = {"Maze"},
+        abbr = {"Maze","Great Barrow","GB"},
         region = "Bree-land",
         level_lower = 20,
         level_upper = 160,
@@ -82,7 +82,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Great Barrow: Thadúr",
-        abbr = {"Thadur"},
+        abbr = {"Thadur","Great Barrow","GB"},
         region = "Bree-land",
         level_lower = 20,
         level_upper = 160,
@@ -92,7 +92,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Great Barrow: Sambrog",
-        abbr = {"Sammy"},
+        abbr = {"Sambrog","Sammy","Great Barrow","GB"},
         region = "Bree-land",
         level_lower = 20,
         level_upper = 160,
@@ -112,7 +112,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Garth Agarwen: Arboretum",
-        abbr = {"Arboretum","GA"},
+        abbr = {"Arboretum","Garth Agarwen","GA"},
         region = "Lone-lands",
         level_lower = 32,
         level_upper = nil,
@@ -122,7 +122,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Garth Agarwen: Barrows",
-        abbr = {"GA Barrows","GA"},
+        abbr = {"GA Barrows","Garth Agarwen","GA"},
         region = "Lone-lands",
         level_lower = 32,
         level_upper = nil,
@@ -132,7 +132,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Garth Agarwen: Fortress",
-        abbr = {"GA Fortress","GA"},
+        abbr = {"GA Fortress","Garth Agarwen","GA"},
         region = "Lone-lands",
         level_lower = 32,
         level_upper = nil,
@@ -152,7 +152,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Fornost: Wraith of Water",
-        abbr = {"Fornost WoW","Water","Fornost"},
+        abbr = {"Fornost WoW","Fornost Water","Fornost"},
         region = "North Downs",
         level_lower = 25,
         level_upper = 160,
@@ -162,7 +162,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Fornost: Wraith of Earth",
-        abbr = {"Fornost WoE","Earth","Fornost"},
+        abbr = {"Fornost WoE","Fornost Earth","Fornost"},
         region = "North Downs",
         level_lower = 25,
         level_upper = 160,
@@ -172,7 +172,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Fornost: Wraith of Fire",
-        abbr = {"Fornost WoF","Fire","Fornost"},
+        abbr = {"Fornost WoF","Fornost Fire","Fornost"},
         region = "North Downs",
         level_lower = 25,
         level_upper = 160,
@@ -182,7 +182,7 @@ LFFBoardData = {
     {
         category = "Shadows of Angmar",
         name = "Fornost: Wraith of Shadow",
-        abbr = {"Fornost WoS","Shadow","Fornost"},
+        abbr = {"Fornost WoS","Fornost Shadow","Fornost"},
         region = "North Downs",
         level_lower = 25,
         level_upper = 160,
@@ -602,7 +602,7 @@ LFFBoardData = {
     {
         category = "War for Gondor",
         name = "Retaking Pelargir",
-        abbr = {"Pela","Pel","Pelargir"},
+        abbr = {"Pelargir","Pelagir","Pela","Pel"},
         region = "Central Gondor",
         level_lower = 10,
         level_upper = 160,
@@ -772,7 +772,7 @@ LFFBoardData = {
     {
         category = "Minas Morgul",
         name = "Gorthad Nûr, the Deep-barrow",
-        abbr = {"DB","Barrow"},
+        abbr = {"Deep Barrow","Deep-barrow","DB"},
         region = "Minas Morgul",
         level_lower = 121,
         level_upper = 160,
@@ -822,7 +822,7 @@ LFFBoardData = {
     {
         category = "Mists of Wilderland",
         name = "Askâd-mazal, the Chamber of Shadows",
-        abbr = {"Askad-mazal","AM"},
+        abbr = {"Askad-mazal","Chamber of Shadows"},
         region = "The Foundations of Stone",
         level_lower = 50,
         level_upper = 160,
@@ -1060,6 +1060,16 @@ LFFBoardData = {
         group = {}
     },
     {
+        category = "Other",
+        name = "PvP",
+        abbr = {"Ettenmoors","Moors","PvP"},
+        region = "",
+        level_lower = 20,
+        level_upper = nil,
+        tiers = nil,
+        group = {}
+    },
+    {
         category = "Shadows of Angmar",
         name = "Helegrod: Drake Wing",
         abbr = {"Drake-wing"},
@@ -1192,7 +1202,7 @@ LFFBoardData = {
     {
         category = "Rise of Isengard",
         name = "Tower of Orthanc",
-        abbr = {"ToO"},
+        abbr = {"Orthanc"},
         region = "Isengard",
         level_lower = 75,
         level_upper = nil,

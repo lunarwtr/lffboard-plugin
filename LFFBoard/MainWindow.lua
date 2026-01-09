@@ -3,6 +3,9 @@ import "Turbine.UI"
 import "Turbine.UI.Lotro"
 import "LFFBoard"
 
+---@type LFFBoardGlobal
+LFFBoard = LFFBoard or {}
+
 MainWindow = class(ResizableWindow)
 
 function MainWindow:Constructor()
@@ -138,6 +141,25 @@ function MainWindow:Constructor()
 		LFFBoard.settings.iconPos.top = top;
 	end
 
+    self:SetWantsKeyEvents( true );
+    self.KeyDown = function( sender, args )
+        if ( args.Action == 268435635 ) then
+            if self:IsVisible() then
+                self.forcedHide = true;
+                self:SetVisible( false );
+            else
+                if self.forcedHide then
+                    self.forcedHide = false;
+                    self:SetVisible( true );
+                end
+            end
+            if self.shortcut:IsVisible() then
+                self.shortcut:SetVisible(false);
+            else
+                self.shortcut:SetVisible(true);
+            end
+        end
+	end
 end
 
 function MainWindow:Refresh()

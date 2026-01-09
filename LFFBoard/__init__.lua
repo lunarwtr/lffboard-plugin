@@ -1,3 +1,4 @@
+import "LFFBoard.Types";
 import "LFFBoard.ResizableWindow";
 import "LFFBoard.MainWindow";
 import "LFFBoard.Data";

@@ -2,10 +2,13 @@ import "Turbine.UI"
 import "Turbine.UI.Lotro"
 import "LFFBoard"
 
+---@type LFFBoardGlobal
+---@diagnostic disable-next-line: missing-fields
 LFFBoard = {
     settings = LoadLFFBoardSettings(),
     entries = {}
 }
+LFFBoard.abbrevMap = Parser.build_abbr_map(LFFBoardData, LFFBoard.settings.dungeons or {})
 LFFBoard.window = MainWindow()
 LFFBoard.options = Options()
 LFFBoard.window:SetVisible(LFFBoard.settings.windowVisible);
@@ -40,7 +43,11 @@ end
 Turbine.Shell.AddCommand( "lffboard", LFFBoardCommand );
 listCommandsCommand = Turbine.ShellCommand();
 
-
+---Add or update an entry on the board
+---@param instance LFFBoardDungeon
+---@param sender string
+---@param senderid string|nil
+---@param message string
 function LFFBoard.UpdateEntry(instance, sender, senderid, message)
     if not LFFBoard.entries[sender] then
         LFFBoard.entries[sender] = {}
@@ -55,7 +62,8 @@ function LFFBoard.UpdateEntry(instance, sender, senderid, message)
     LFFBoard.window:Refresh()
 end
 
--- Remove all entries for a sender
+---Remove all entries for a sender
+---@param sender string
 function LFFBoard.RemoveEntriesForSender(sender)
     LFFBoard.entries[sender] = nil
     LFFBoard.window:Refresh()
@@ -100,7 +108,7 @@ Turbine.Chat.Received = function(sender, args)
         return
     end
 
-    local entries = Parser.categorize_message(message, LFFBoardData, LFFBoard.settings.dungeons or {})
+    local entries = Parser.categorize_message(message, LFFBoardData, LFFBoard.abbrevMap)
     if channel and entries then
         for _, entry in ipairs(entries) do
             LFFBoard.UpdateEntry(entry, from, id, message)

@@ -1,3 +1,4 @@
 .vscode/
-sample-lff-chats.txt
+sample-lff-chats*.txt
 Plugins
+TODO.md
