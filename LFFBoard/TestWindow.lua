@@ -34,7 +34,7 @@ function TestWindow:Constructor()
     self.input:SetMultiline(true)
     self.input:SetSize(580, 250)
     self.input:SetPosition(10, 40)
-    self.input:SetText("[LFF] Alice: 'LFG HC / RT'")
+    self.input:SetText("[LFF] Alice: 'LFG HC / RT'\n[To LFF] 'LFG Hold'")
 
     self.parseButton = Turbine.UI.Lotro.Button()
     self.parseButton:SetParent(self)
@@ -54,6 +54,9 @@ function TestWindow:Constructor()
             -- Determine ChatType
             for chatTypeName, chatType in pairs(Turbine.ChatType) do
                 if line:find("%[" .. chatTypeName .. "%]") then
+                    args.ChatType = chatType
+                    break;
+                elseif line:find("%[To%s+" .. chatTypeName .. "%]") then
                     args.ChatType = chatType
                     break;
                 end

@@ -98,12 +98,24 @@ Turbine.Chat.Received = function(sender, args)
     if not channel then
         channel, from, message = args.Message:match("^%[(.-)%]%s+([^:]+):%s+'(.*)'%s*$")
     end
+    -- Handle when user is one who messages: [To LFF] 'example message', [To World] 'example message', or [To Kinship] 'example message'
+    if not channel then
+        channel, message = args.Message:match("^%[To%s+(%w+)%]%s+'(.*)'%s*$")
+        if channel == "LFF" or channel == "World" or channel == "Kinship" then
+            from = Turbine.Gameplay.LocalPlayer.GetInstance():GetName()
+        else
+            channel = nil
+            message = nil
+        end
+    end
+
     if not message then
         return
     end
 
-    -- Remove all entries for sender if they say 'full' (case-insensitive)
-    if string.find(message:lower(), "%f[%w]full%f[%W]") then
+    -- Remove all entries for sender if they say 'full' (case-insensitive), but NOT 'full run'
+    local msgLower = message:lower()
+    if string.find(msgLower, "%f[%w]full%f[%W]") and not string.find(msgLower, "%f[%w]full run%f[%W]") then
         LFFBoard.RemoveEntriesForSender(from)
         return
     end

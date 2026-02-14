@@ -319,7 +319,16 @@ function LoadLFFBoardSettings(reset)
     local displayHeight = Turbine.UI.Display:GetHeight()
     local settings = nil
     if not reset then
-        settings = Turbine.PluginData.Load( Turbine.DataScope.Character, "LFFBoardSettings" )
+        local ok, loaded = pcall(function()
+            -- Load settings or return nil if error (e.g. corrupted data)
+            return Turbine.PluginData.Load(Turbine.DataScope.Character, "LFFBoardSettings")
+        end)
+        if ok then
+            settings = loaded
+        else
+            Turbine.Shell.WriteLine("Corrupted settings detected, loading defaults. Error: " .. tostring(loaded))
+            settings = nil -- force defaults if error
+        end
     end
 
     if settings == nil then

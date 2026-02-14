@@ -1012,7 +1012,7 @@ LFFBoardData = {
     {
         category = "Kingdoms of Harad",
         name = "Kôth Rau, the Wailing Hold",
-        abbr = {"Koth Rau","Wailing Hold","Koth"},
+        abbr = {"Koth Rau","Wailing Hold","Koth","Hold"},
         region = "Mûr Ghala",
         level_lower = 160,
         level_upper = nil,
