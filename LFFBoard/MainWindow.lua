@@ -13,6 +13,8 @@ function MainWindow:Constructor()
 
     self.timerColor = Turbine.UI.Color(0, 1, 0);
     self.headerColor = Turbine.UI.Color(0, 0.502, 1);
+    --self.headerColor = Turbine.UI.Color(1, 0.8, 0.2);
+    self.infoColor = Turbine.UI.Color(0.45, 0.45, 0.45);
 
     self:SetText("LFF Board")
     self:SetSize(700, 400)
@@ -96,8 +98,14 @@ function MainWindow:Constructor()
                 timerLabel:SetPosition(row:GetWidth() - timerLabel:GetWidth(), 0);
                 -- Set msgLabel to fill space between personLabel and timerLabel
                 msgLabel:SetWidth(row:GetWidth() - personLabel:GetWidth() - timerLabel:GetWidth() - 20)
+            elseif row:GetControls():GetCount() == 2 then
+                -- Heading rows: headingLabel (index 1) + infoLabel (index 2)
+                local headingLabel = row:GetControls():Get(1);
+                local infoLabel = row:GetControls():Get(2);
+                headingLabel:SetWidth(row:GetWidth());
+                infoLabel:SetWidth(math.max(50, (headingLabel:GetWidth() - 20) / 2));
+                infoLabel:SetPosition(row:GetWidth() - infoLabel:GetWidth(), 4);
             else
-                -- For heading rows, just set full width
                 row:SetWidth(self.list:GetWidth() - 20);
             end
         end
@@ -205,14 +213,48 @@ function MainWindow:Refresh()
     table.sort(instance_names)
 
     for _, inst_name in ipairs(instance_names) do
-        -- Color for dungeon heading (blue)
-        local heading = string.format("<rgb=#0080FF>%s</rgb>", inst_name)
-        local headingRow = Turbine.UI.Label()
-        headingRow:SetFont(Turbine.UI.Lotro.Font.Verdana18);
-        headingRow:SetMarkupEnabled(true);
+        -- Build info text from instance data (region + level range)
+        local firstEntry = grouped[inst_name][1]
+        local instInfo = firstEntry and firstEntry.instance
+        local infoText = ""
+        if instInfo then
+            local infoParts = {}
+            if instInfo.level_lower then
+                table.insert(infoParts, string.format("Lv. %d+", instInfo.level_lower))
+            end
+            if instInfo.region and instInfo.region ~= "" then
+                table.insert(infoParts, instInfo.region)
+            end
+            if instInfo.category and instInfo.category ~= "" then
+                table.insert(infoParts, instInfo.category)
+            end
+            infoText = table.concat(infoParts, " / ")
+        end
+
+        local headingRow = Turbine.UI.Control()
         headingRow:SetSize(self.list:GetWidth() - 20, 20)
-        headingRow:SetText(inst_name)
-        headingRow:SetForeColor(self.headerColor)
+
+        local headingLabel = Turbine.UI.Label()
+        headingLabel:SetParent(headingRow)
+        headingLabel:SetPosition(0, 0)
+        headingLabel:SetSize(self.list:GetWidth() - 20, 20)
+        headingLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
+        headingLabel:SetFont(Turbine.UI.Lotro.Font.Verdana18);
+        headingLabel:SetFontStyle(Turbine.UI.FontStyle.Outline)
+        headingLabel:SetForeColor(self.headerColor)
+        headingLabel:SetText(inst_name)
+
+        local infoLabel = Turbine.UI.Label()
+        infoLabel:SetParent(headingRow)
+        infoLabel:SetSize(220, 12)
+        infoLabel:SetPosition(headingRow:GetWidth() - 220, 4)
+        infoLabel:SetFont(Turbine.UI.Lotro.Font.Verdana12)
+        infoLabel:SetOutlineColor(Turbine.UI.Color(0, 0, 0))
+        infoLabel:SetFontStyle(Turbine.UI.FontStyle.Outline)
+        infoLabel:SetForeColor(self.infoColor)
+        infoLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleRight)
+        infoLabel:SetText(infoText)
+
         self.list:AddItem(headingRow)
 
         -- Sort entries by time (most recent last)
@@ -251,7 +293,7 @@ function MainWindow:Refresh()
             personLabel:SetFont(Turbine.UI.Lotro.Font.Verdana14)
             personLabel:SetOutlineColor(Turbine.UI.Color(0,0,0));
             personLabel:SetFontStyle(Turbine.UI.FontStyle.Outline);
-            personLabel:SetTextAlignment(Turbine.UI.ContentAlignment.MiddleLeft)
+            personLabel:SetTextAlignment(Turbine.UI.ContentAlignment.TopLeft)
             personLabel:SetText(personText)
             personLabel:SetSize(150, 20)
 

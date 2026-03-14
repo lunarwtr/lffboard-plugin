@@ -100,7 +100,52 @@ function Options:Constructor()
     self.kinship.CheckedChanged = function(sender, args)
         LFFBoard.settings.channels.kinship = self.kinship:IsChecked()
     end
-    y = y + 50
+    y = y + 30
+
+    -- Filter textbox for searching categories/dungeons
+    local filterLabel = Turbine.UI.Label()
+    filterLabel:SetParent(self)
+    filterLabel:SetFont(fontFace)
+    filterLabel:SetText("Filter:")
+    filterLabel:SetPosition(10, y)
+    filterLabel:SetSize(50, 20)
+    self.filterBox = Turbine.UI.Lotro.TextBox()
+    self.filterBox:SetParent(self)
+    self.filterBox:SetFont(fontFace)
+    self.filterBox:SetForeColor(fontColor)
+    self.filterBox:SetPosition(65, y)
+    self.filterBox:SetSize(200, 20)
+
+    local resetAllButton = Turbine.UI.Lotro.Button()
+    resetAllButton:SetParent(self)
+    resetAllButton:SetText("Reset All Abbreviations")
+    resetAllButton:SetFont(fontFace)
+    resetAllButton:SetSize(200, 20)
+    resetAllButton:SetPosition(listWidth - 220 - 10, y)
+    resetAllButton:SetVisible(false)
+    resetAllButton.Click = function(sender, args)
+        for i = 1, self.list:GetItemCount() do
+            local catControl = self.list:GetItem(i)
+            for _, row in ipairs(catControl.dungeonRows) do
+                row.resetAbbr()
+            end
+        end
+    end
+
+    local function updateResetAllButton()
+        for i = 1, self.list:GetItemCount() do
+            local catControl = self.list:GetItem(i)
+            for _, row in ipairs(catControl.dungeonRows) do
+                if row.isAbbrModified() then
+                    resetAllButton:SetVisible(true)
+                    return
+                end
+            end
+        end
+        resetAllButton:SetVisible(false)
+    end
+
+    y = y + 26
 
     -- Main ListBox for all categories
     self.list = Turbine.UI.ListBox()
@@ -141,6 +186,8 @@ function Options:Constructor()
         cb:SetSize(cbWidth, cbHeight)
         cb:SetPosition(0, 2)
         row:SetHeight(cbHeight + 4)
+        row.originalHeight = cbHeight + 4
+        row.entryName = entry.name
 
         local abbrStr = table.concat(setting.abbr ~= nil and setting.abbr or entry.abbr or {}, ", ")
         local abbrBox = Turbine.UI.Lotro.TextBox()
@@ -202,11 +249,17 @@ function Options:Constructor()
                 resetIcon:SetVisible(true)
             end
             LFFBoard.abbrevMap = Parser.build_abbr_map(LFFBoardData, LFFBoard.settings.dungeons or {})
+            updateResetAllButton()
         end
 
         -- Helper to get the checkbox for parent list iteration
         row.GetCheckbox = function() return cb end
         row.GetTextBox = function() return abbrBox end
+        row.isAbbrModified = function() return resetIcon:IsVisible() end
+        row.resetAbbr = function()
+            abbrBox:SetText(table.concat(defaultAbbr, ", "))
+            abbrBox.TextChanged(abbrBox, {})
+        end
         row:SetSize(rowWidth, cbHeight + 4)
 
         return row
@@ -239,13 +292,20 @@ function Options:Constructor()
         dungeonList:SetParent(catControl)
         dungeonList:SetPosition(10, 32)
         -- Add dungeon rows
+        local dungeonRows = {}
         for _, entry in ipairs(dungeons) do
             local row = createDungeonRow(entry)
             listHeight = listHeight + row:GetHeight()
             dungeonList:AddItem(row)
+            table.insert(dungeonRows, row)
         end
         dungeonList:SetSize(dungeonListWidth, listHeight + 10)
         catControl:SetHeight(32 + dungeonList:GetHeight())
+        catControl.categoryName = category
+        catControl.dungeonRows = dungeonRows
+        catControl.dungeonListRef = dungeonList
+        catControl.dungeons = dungeons
+        catControl.originalHeight = catControl:GetHeight()
 
         -- Toggle all dungeons in this category and update child checkboxes
         catCB.CheckedChanged = function(sender, args)
@@ -273,6 +333,70 @@ function Options:Constructor()
         self.list:AddItem(catControl)
     end
     self.list:SetSize(listWidth, listHeight)
+    updateResetAllButton()
+
+    -- Filter: show/hide categories and dungeon rows based on search text
+    local function applyFilter(text)
+        local filter = text:gsub('^%s+', ''):gsub('%s+$', ''):lower()
+        local totalHeight = 0
+        for i = 1, self.list:GetItemCount() do
+            local catControl = self.list:GetItem(i)
+            if filter == '' then
+                -- Restore everything to original state
+                local dungeonListHeight = 0
+                for _, row in ipairs(catControl.dungeonRows) do
+                    row:SetVisible(true)
+                    row:SetHeight(row.originalHeight)
+                    dungeonListHeight = dungeonListHeight + row.originalHeight
+                end
+                catControl.dungeonListRef:SetSize(dungeonListWidth, dungeonListHeight + 10)
+                catControl:SetHeight(32 + catControl.dungeonListRef:GetHeight())
+                catControl:SetVisible(true)
+                totalHeight = totalHeight + catControl:GetHeight()
+            elseif catControl.categoryName:lower():find(filter, 1, true) then
+                -- Category name matches: show entire category
+                local dungeonListHeight = 0
+                for _, row in ipairs(catControl.dungeonRows) do
+                    row:SetVisible(true)
+                    row:SetHeight(row.originalHeight)
+                    dungeonListHeight = dungeonListHeight + row.originalHeight
+                end
+                catControl.dungeonListRef:SetSize(dungeonListWidth, dungeonListHeight + 10)
+                catControl:SetHeight(32 + catControl.dungeonListRef:GetHeight())
+                catControl:SetVisible(true)
+                totalHeight = totalHeight + catControl:GetHeight()
+            else
+                -- Filter by dungeon name within category
+                local dungeonListHeight = 0
+                local anyVisible = false
+                for _, row in ipairs(catControl.dungeonRows) do
+                    local abbrText = row.GetTextBox and row.GetTextBox():GetText() or ''
+                    if row.entryName:lower():find(filter, 1, true) or abbrText:lower():find(filter, 1, true) then
+                        row:SetVisible(true)
+                        row:SetHeight(row.originalHeight)
+                        dungeonListHeight = dungeonListHeight + row.originalHeight
+                        anyVisible = true
+                    else
+                        row:SetVisible(false)
+                        row:SetHeight(0)
+                    end
+                end
+                if anyVisible then
+                    catControl.dungeonListRef:SetSize(dungeonListWidth, dungeonListHeight + 10)
+                    catControl:SetHeight(32 + catControl.dungeonListRef:GetHeight())
+                    catControl:SetVisible(true)
+                    totalHeight = totalHeight + catControl:GetHeight()
+                else
+                    catControl:SetVisible(false)
+                    catControl:SetHeight(0)
+                end
+            end
+        end
+        self.list:SetSize(listWidth, totalHeight)
+    end
+    self.filterBox.TextChanged = function(sender, args)
+        applyFilter(self.filterBox:GetText())
+    end
 
     -- Set height based on content
     y = y + 10 + listHeight

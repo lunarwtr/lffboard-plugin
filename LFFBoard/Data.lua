@@ -1002,7 +1002,7 @@ LFFBoardData = {
     {
         category = "Kingdoms of Harad",
         name = "Ekal-nêbi, the Fallen Palace",
-        abbr = {"Fallen Palace","Ekal-nebi","Ekalnebi","Ekal"},
+        abbr = {"Fallen Palace","Ekal-nebi","Ekalnebi","Ekal","Palace"},
         region = "Mûr Ghala",
         level_lower = 160,
         level_upper = nil,
@@ -1022,12 +1022,22 @@ LFFBoardData = {
     {
         category = "Kingdoms of Harad",
         name = "Treasure Caves of Hurum Kâna",
-        abbr = {"Treasure Caves","Hurum Kana","Hurum"},
+        abbr = {"Treasure Caves","Hurum Kana","Hurum","Caves"},
         region = "Mûr Ghala",
         level_lower = 160,
         level_upper = nil,
         tiers = 3,
         group = {"Small Fellowship"}
+    },
+    {
+        category = "Kingdoms of Harad",
+        name = "The Folly of Nagakhêdi",
+        abbr = {"Folly","Nagakhêdi","Nagakhedi","Naga"},
+        region = "Mûr Ghala",
+        level_lower = 160,
+        level_upper = nil,
+        tiers = 3,
+        group = {"Raid"}
     },
     {
         category = "Other",
