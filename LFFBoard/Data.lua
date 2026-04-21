@@ -1292,7 +1292,7 @@ LFFBoardData = {
     {
         category = "Minas Morgul",
         name = "Remmorchant, the Net of Darkness",
-        abbr = {"Remmo"},
+        abbr = {"Remmo","Remmorchant"},
         region = "Minas Morgul",
         level_lower = 130,
         level_upper = nil,

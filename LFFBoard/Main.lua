@@ -93,14 +93,14 @@ Turbine.Chat.Received = function(sender, args)
     -- Turbine.Shell.WriteLine("CHAT:"..obj2string(args):gsub("<", "lt;"):gsub(">", "gt;"))
 
     -- New format: [World] <Select:IID:0x0000000000000000000>Name<\Select>: 'message'
-    local channel, id, from, message = args.Message:match("^%[(.-)%]%s+<Select:IID:([^>]+)>(.-)<\\Select>:%s+'(.*)'%s*$")
+    local channel, id, from, message = args.Message:match("^%[(.-)%]%s+<Select:IID:([^>]+)>(.-)<\\Select>:%s+'?(.-)'?%s*$")
     -- Secondary pattern: [LFF] Name: 'message'
     if not channel then
-        channel, from, message = args.Message:match("^%[(.-)%]%s+([^:]+):%s+'(.*)'%s*$")
+        channel, from, message = args.Message:match("^%[(.-)%]%s+([^:]+):%s+'?(.-)'?%s*$")
     end
     -- Handle when user is one who messages: [To LFF] 'example message', [To World] 'example message', or [To Kinship] 'example message'
     if not channel then
-        channel, message = args.Message:match("^%[To%s+(%w+)%]%s+'(.*)'%s*$")
+        channel, message = args.Message:match("^%[To%s+(%w+)%]%s+'?(.-)'?%s*$")
         if channel == "LFF" or channel == "World" or channel == "Kinship" then
             from = Turbine.Gameplay.LocalPlayer.GetInstance():GetName()
         else
